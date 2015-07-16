@@ -1,0 +1,26 @@
+name: giantswarm
+version: 0.1.3
+description: create, launch and update a swarm
+keywords:
+  - giantswarm
+  - docker
+  - microservice
+properties:
+  token:
+    type: string
+    required: true
+    default: ""
+  # select an environment
+  env:
+    type: string
+    required: true
+    default: ""
+  opts:
+    type: string
+    required: false
+    default: ""
+  # If you want to update a specific component, put it here
+  update:
+    type: string
+    required: false
+    default: ""
