@@ -7,6 +7,7 @@ echo $WERCKER_GIANTSWARM_TOKEN > $HOME/.swarm/token
 
 # If we have an environment set, switch to it
 if [ -n "$WERCKER_GIANTSWARM_ENV" ]; then
+  echo $swarm env $WERCKER_GIANTSWARM_ENV
   $swarm env $WERCKER_GIANTSWARM_ENV
 fi
 
