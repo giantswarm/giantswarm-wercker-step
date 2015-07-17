@@ -1,6 +1,6 @@
 name: giantswarm
 version: 0.1.3
-description: create, launch and update a swarm
+description: Create, update and launch a Giant Swarm application from Wercker. Magically.
 keywords:
   - giantswarm
   - docker
