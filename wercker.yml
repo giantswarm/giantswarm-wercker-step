@@ -13,3 +13,4 @@ build:
           gzip -cd swarm-${SWARM_VERSION}-linux-amd64.tar.gz | tar -x
           rm swarm-${SWARM_VERSION}-linux-amd64.tar.gz
           pwd; ls
+          ./jq

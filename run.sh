@@ -15,7 +15,7 @@ curl -sS \
 # If we have an environment set, switch to it
 if [ -n "$WERCKER_GIANTSWARM_ENV" ]; then
   echo $WERCKER_STEP_ROOT/swarm env $WERCKER_GIANTSWARM_ENV
-  $WERCKER_STEP_ROOT/swarm$swarm env $WERCKER_GIANTSWARM_ENV
+  $WERCKER_STEP_ROOT/swarm env $WERCKER_GIANTSWARM_ENV
 fi
 
 # If we have a swarm.json then try to create and start the app
