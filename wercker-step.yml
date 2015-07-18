@@ -1,5 +1,5 @@
 name: giantswarm
-version: 0.1.6
+version: 0.1.7
 description: Push a Giant Swarm application from Wercker. Uses version 0.18.0 of the swarm CLI.
 keywords:
   - giantswarm

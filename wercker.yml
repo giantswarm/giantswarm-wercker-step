@@ -6,6 +6,7 @@ build:
           sudo apt-get update -y 
           sudo apt-get install -y wget curl aptitude
           wget http://stedolan.github.io/jq/download/linux32/jq
+          chmod 755 jq; mv jq /bin
           export SWARM_VERSION=0.18.0
           wget http://downloads.giantswarm.io/swarm/clients/${SWARM_VERSION}/swarm-${SWARM_VERSION}-linux-amd64.tar.gz
           gzip -cd swarm-${SWARM_VERSION}-linux-amd64.tar.gz | tar -x
