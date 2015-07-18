@@ -2,6 +2,7 @@
 # link to executables from /pipeline/build and install curl
 swarm=$WERCKER_STEP_ROOT/swarm
 jq=$WERCKER_STEP_ROOT/jq
+sudo apt-get update -y
 sudo apt-get install curl -y
 
 # get the token by calling the API
