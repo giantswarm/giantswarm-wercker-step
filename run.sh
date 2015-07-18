@@ -1,4 +1,12 @@
 #!/bin/sh
+# do some setup
+sudo apt-get update -y 
+sudo apt-get install -y curl
+
+# grab jq
+wget http://stedolan.github.io/jq/download/linux32/jq
+
+# set swarm
 swarm=$WERCKER_STEP_ROOT/swarm
 
 # get the token by calling the API
