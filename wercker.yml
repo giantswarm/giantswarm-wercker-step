@@ -4,7 +4,7 @@ build:
     - script:
         code: |
           sudo apt-get update -y 
-          sudo apt-get install -y wget
+          sudo apt-get install -y wget curl jq
           export SWARM_VERSION=0.18.0
           wget http://downloads.giantswarm.io/swarm/clients/${SWARM_VERSION}/swarm-${SWARM_VERSION}-linux-amd64.tar.gz
           gzip -cd swarm-${SWARM_VERSION}-linux-amd64.tar.gz | tar -x

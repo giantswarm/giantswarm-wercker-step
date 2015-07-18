@@ -1,11 +1,14 @@
 #!/bin/sh
 swarm=$WERCKER_STEP_ROOT/swarm
 
-python --version
-
-# get the token
+# get the token by calling the API
 mkdir -p $HOME/.swarm
-echo $WERCKER_GIANTSWARM_TOKEN > $HOME/.swarm/token
+curl -sS \
+    -H "Content-Type: application/json" \
+    -X POST \
+    --data '{"password":"'"$(echo -n $WERCKER_GIANTSWARM_PASS | base64)"'"}' \
+    https://api.giantswarm.io/v1/user/$WERCKER_GIANTSWARM_USER/login \
+    | jq '.data.Id' > $HOME/.swarm/token > $HOME/.swarm
 
 # If we have an environment set, switch to it
 if [ -n "$WERCKER_GIANTSWARM_ENV" ]; then
