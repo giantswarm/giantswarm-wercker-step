@@ -1,22 +1,17 @@
 #!/bin/sh
-# do some setup
-sudo apt-get update -y 
-sudo apt-get install -y curl
-
-# grab jq
-wget http://stedolan.github.io/jq/download/linux32/jq
-
-# set swarm
+# set executables
 swarm=$WERCKER_STEP_ROOT/swarm
+jq=$WERCKER_STEP_ROOT/jq
+curl=$WERCKER_STEP_ROOT/curl
 
 # get the token by calling the API
 mkdir -p $HOME/.swarm
-curl -sS \
+$curl -sS \
     -H "Content-Type: application/json" \
     -X POST \
     --data '{"password":"'"$(echo -n $WERCKER_GIANTSWARM_PASS | base64)"'"}' \
     https://api.giantswarm.io/v1/user/$WERCKER_GIANTSWARM_USER/login \
-    | jq '.data.Id' > $HOME/.swarm/token > $HOME/.swarm
+    | $jq '.data.Id' > $HOME/.swarm/token > $HOME/.swarm
 
 # If we have an environment set, switch to it
 if [ -n "$WERCKER_GIANTSWARM_ENV" ]; then
