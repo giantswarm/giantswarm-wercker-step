@@ -1,8 +1,4 @@
 #!/bin/sh
-
-echo "hello"
-echo $WERCKER_GIANTSWARM_PASS
-
 # get the token by calling `swarm login` with user/pass
 $WERCKER_STEP_ROOT/swarm login -p $WERCKER_GIANTSWARM_PASS $WERCKER_GIANTSWARM_USER
 
@@ -18,7 +14,7 @@ if [ -f "swarm.json" ]; then
   $WERCKER_STEP_ROOT/swarm up $WERCKER_GIANTSWARM_OPTS
 fi
 
-# If we set a component to update, update it
+# now do the update
 if [ -n "$WERCKER_GIANTSWARM_UPDATE" ]; then
   $WERCKER_STEP_ROOT/swarm update $WERCKER_GIANTSWARM_UPDATE
 fi
