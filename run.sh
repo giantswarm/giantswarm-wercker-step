@@ -1,16 +1,7 @@
 #!/bin/sh
-# install curl (this sucks a bit)
-sudo apt-get update -y
-sudo apt-get install curl -y
 
-# get the token by calling the API
-mkdir -p $HOME/.swarm; touch $HOME/.swarm/token
-curl -sS \
-    -H "Content-Type: application/json" \
-    -X POST \
-    --data '{"password":"'"$(echo -n $WERCKER_GIANTSWARM_PASS | base64)"'"}' \
-    https://api.giantswarm.io/v1/user/$WERCKER_GIANTSWARM_USER/login \
-    | $WERCKER_STEP_ROOT/jq -r '.data.Id' >> $HOME/.swarm/token
+# get the token by calling `swarm login` with user/pass
+$WERCKER_STEP_ROOT/swarm login -p $WERCKER_GIANTSWARM_PASS $WERCKER_GIANTSWARM_USER
 
 # If we have an environment set, switch to it
 if [ -n "$WERCKER_GIANTSWARM_ENV" ]; then
