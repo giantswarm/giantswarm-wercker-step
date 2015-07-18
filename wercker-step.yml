@@ -1,16 +1,19 @@
 name: giantswarm
-version: 0.1.5
-description: Create, update and launch a Giant Swarm application from Wercker. Uses version 0.18.0 of the swarm CLI.
+version: 0.1.6
+description: Push a Giant Swarm application from Wercker. Uses version 0.18.0 of the swarm CLI.
 keywords:
   - giantswarm
   - docker
   - microservice
 properties:
-  token:
+  user:
     type: string
     required: true
     default: ""
-  # select an environment
+  pass:
+    type: string
+    required: true
+    default: ""
   env:
     type: string
     required: true
@@ -19,7 +22,6 @@ properties:
     type: string
     required: false
     default: ""
-  # If you want to update a specific component, put it here
   update:
     type: string
     required: false

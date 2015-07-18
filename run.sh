@@ -1,7 +1,9 @@
 #!/bin/sh
 swarm=$WERCKER_STEP_ROOT/swarm
 
-# Set up the token
+python --version
+
+# get the token
 mkdir -p $HOME/.swarm
 echo $WERCKER_GIANTSWARM_TOKEN > $HOME/.swarm/token
 
