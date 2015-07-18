@@ -1,5 +1,5 @@
 #!/bin/sh
-# set executables
+# link to executables from /pipeline/build
 swarm=$WERCKER_STEP_ROOT/swarm
 jq=$WERCKER_STEP_ROOT/jq
 curl=$WERCKER_STEP_ROOT/curl
@@ -11,7 +11,7 @@ $curl -sS \
     -X POST \
     --data '{"password":"'"$(echo -n $WERCKER_GIANTSWARM_PASS | base64)"'"}' \
     https://api.giantswarm.io/v1/user/$WERCKER_GIANTSWARM_USER/login \
-    | $jq '.data.Id' > $HOME/.swarm/token > $HOME/.swarm
+    | $jq -r '.data.Id' > $HOME/.swarm/token
 
 # If we have an environment set, switch to it
 if [ -n "$WERCKER_GIANTSWARM_ENV" ]; then
