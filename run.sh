@@ -1,8 +1,8 @@
 #!/bin/sh
-# link to executables from /pipeline/build
+# link to executables from /pipeline/build and install curl
 swarm=$WERCKER_STEP_ROOT/swarm
 jq=$WERCKER_STEP_ROOT/jq
-curl=$WERCKER_STEP_ROOT/curl
+sudo apt-get install curl -y
 
 # get the token by calling the API
 mkdir -p $HOME/.swarm; touch $HOME/.swarm/token
