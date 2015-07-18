@@ -1,5 +1,8 @@
 #!/bin/sh
 
+echo "hello"
+echo $WERCKER_GIANTSWARM_PASS
+
 # get the token by calling `swarm login` with user/pass
 $WERCKER_STEP_ROOT/swarm login -p $WERCKER_GIANTSWARM_PASS $WERCKER_GIANTSWARM_USER
 
