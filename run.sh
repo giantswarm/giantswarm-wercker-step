@@ -8,13 +8,17 @@ if [ -n "$WERCKER_GIANTSWARM_ENV" ]; then
   $WERCKER_STEP_ROOT/swarm env $WERCKER_GIANTSWARM_ENV
 fi
 
+timer1=$(date +"%s")
 # If we have a swarm.json then try to create and start the app
 if [ -f "swarm.json" ]; then
   info "found a swarm.json, attempting to swarm up"
   $WERCKER_STEP_ROOT/swarm up $WERCKER_GIANTSWARM_OPTS
 fi
+timer2=$(date +"%s")
+delta=$(($timer2-$timer1))
 
-# now do the update
-if [ -n "$WERCKER_GIANTSWARM_UPDATE" ]; then
+# only do the update if the time took to run swarm up was less than 6 seconds
+if [ $delta -gt 6 ]; then
   $WERCKER_STEP_ROOT/swarm update $WERCKER_GIANTSWARM_UPDATE
 fi
+
