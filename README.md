@@ -19,12 +19,13 @@ deploy:
         registry: https://registry.giantswarm.io
 
     - kordless/giantswarm:
-        env: $gsenv
-        token: $gstoken
-        opts: --var=gsuser=$gsuser
+        env: $env
+        user: $user
+        pass: $pass
+        opts: --var=user=$user
         update: swacker/swacker-service/flask
 ```
 
-Please note you will need to create a deploy target in your account on wercker.com.
+Please note you will need to create a deploy target in your account on wercker.com, setting the variables `env`, `user`, and `pass` in the deploy step. There is a video you can watch on the [Swacker repo](https://github.com/giantswarm/swacker/) that shows how to do this.
 
 
