@@ -18,7 +18,7 @@ timer2=$(date +"%s")
 delta=$(($timer2-$timer1))
 
 # only do the update if the time took to run swarm up was less than 6 seconds
-if [ $delta -gt 6 ]; then
+if [ $delta -lt 6 ]; then
   $WERCKER_STEP_ROOT/swarm update $WERCKER_GIANTSWARM_UPDATE
 fi
 
