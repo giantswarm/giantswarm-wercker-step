@@ -12,10 +12,10 @@ fi
 if [ -f "swarm.json" ]; then
   # check the application status
   if [ "$( $WERCKER_STEP_ROOT/swarm status swacker |grep -c -e '\sup$' )" -ne 0 ]; then
-    # not running, so we swarm up
-    $WERCKER_STEP_ROOT/swarm up $WERCKER_GIANTSWARM_OPTS
-  else
   	# running, so we update
     $WERCKER_STEP_ROOT/swarm update $WERCKER_GIANTSWARM_UPDATE
+  else
+    # not running, so we swarm up
+    $WERCKER_STEP_ROOT/swarm up $WERCKER_GIANTSWARM_OPTS
   fi
 fi
