@@ -11,7 +11,7 @@ fi
 # If we have a swarm.json then try to create and start the app
 if [ -f "swarm.json" ]; then
   # check the application status
-  if [ "$( $WERCKER_STEP_ROOT/swarm status swacker |grep -c -e '\sup$' )" -ne 0 ]; then
+  if [ "$( $WERCKER_STEP_ROOT/swarm status |grep -c -e '\sup$' )" -ne 0 ]; then
     # running, so we update
     echo $WERCKER_STEP_ROOT/swarm update $WERCKER_GIANTSWARM_UPDATE
     $WERCKER_STEP_ROOT/swarm update $WERCKER_GIANTSWARM_UPDATE
