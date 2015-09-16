@@ -1,6 +1,6 @@
 name: giantswarm
-version: 0.2.5
-description: Push a Giant Swarm application from Wercker. Uses version 0.19.1 of the swarm CLI.
+version: 0.2.6
+description: Push a Giant Swarm application from Wercker. Uses version 0.20.0 of the swarm CLI.
 keywords:
   - giantswarm
   - docker
